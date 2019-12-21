@@ -17,5 +17,5 @@
 - 切勿违反我国法律。
 
 ## To-Do
-- [ ] Android APP
+- [x] Android APP
 - [ ] Wear OS APP
