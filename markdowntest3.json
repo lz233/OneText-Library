@@ -1,6 +1,6 @@
 [
 	{
-		"text": "# 这是标题\n\n- 这是引用\n\n[这是链接](https://github.com/)\n\n**这是粗体**\n\n*这是斜体*\n\n`This is a code line.`",
+		"text": "# 这是标题\n- 这是引用\n[这是链接](https://github.com/)\n**这是粗体**\n*这是斜体*\n`This is a code line.`\n- [ ] 这是任务清单\n~~这是删除线~~",
 		"by": "`test`",
 		"from": "`test`",
 		"time": [
