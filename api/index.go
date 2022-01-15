@@ -17,9 +17,9 @@ type OnetextData struct {
 	Uri  string   `json:"uri,omitempty"`
 }
 
-func Handler(w http.ResponseWriter, r *http.Request) {
+func handleOnetext(w http.ResponseWriter, r *http.Request) {
 	var jsonData []OnetextData
-	jsonBuffer, _ := ioutil.ReadFile("../OneText-Library.bytes")
+	jsonBuffer, _ := ioutil.ReadFile("../OneText-Library.json")
 	_ = json.Unmarshal(jsonBuffer, &jsonData)
 	n := rand.New(rand.NewSource(time.Now().UnixNano()))
 	bytes, _ := json.MarshalIndent(jsonData[n.Intn(len(jsonData))], "", "    ")
