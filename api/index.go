@@ -17,11 +17,23 @@ type OnetextData struct {
 	Uri  string   `json:"uri,omitempty"`
 }
 
+var JsonData []OnetextData
+
+func init() {
+	resp, err := http.Get("https://raw.githubusercontent.com/lz233/OneText-Library/master/OneText-Library.json")
+	if err != nil {
+		panic(err)
+	}
+	defer resp.Body.Close()
+	jsonByte, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		panic(err)
+	}
+	_ = json.Unmarshal(jsonByte, &JsonData)
+}
+
 func HandleOnetext(w http.ResponseWriter, r *http.Request) {
-	var jsonData []OnetextData
-	jsonBuffer, _ := ioutil.ReadFile("../OneText-Library.json")
-	_ = json.Unmarshal(jsonBuffer, &jsonData)
 	n := rand.New(rand.NewSource(time.Now().UnixNano()))
-	bytes, _ := json.MarshalIndent(jsonData[n.Intn(len(jsonData))], "", "    ")
+	bytes, _ := json.MarshalIndent(JsonData[n.Intn(len(JsonData))], "", "    ")
 	_, _ = fmt.Fprint(w, string(bytes))
 }
