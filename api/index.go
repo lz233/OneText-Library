@@ -17,7 +17,7 @@ type OnetextData struct {
 	Uri  string   `json:"uri,omitempty"`
 }
 
-func handleOnetext(w http.ResponseWriter, r *http.Request) {
+func HandleOnetext(w http.ResponseWriter, r *http.Request) {
 	var jsonData []OnetextData
 	jsonBuffer, _ := ioutil.ReadFile("../OneText-Library.json")
 	_ = json.Unmarshal(jsonBuffer, &jsonData)
