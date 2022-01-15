@@ -33,6 +33,7 @@ func init() {
 }
 
 func HandleOnetext(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("content-type", "application/json; charset=utf-8")
 	n := rand.New(rand.NewSource(time.Now().UnixNano()))
 	bytes, _ := json.MarshalIndent(JsonData[n.Intn(len(JsonData))], "", "    ")
 	_, _ = fmt.Fprint(w, string(bytes))
