@@ -1,7 +1,7 @@
 package api
 
 import (
-	"github.com/XiaoMengXinX/OneTextAPI-Go"
+	onetext "github.com/XiaoMengXinX/OneTextAPI-Go"
 	"net/http"
 )
 
