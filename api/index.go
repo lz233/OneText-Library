@@ -5,10 +5,10 @@ import (
 	"net/http"
 )
 
-var o onetext.OneText
+var o = onetext.New()
 
 func init() {
-	err := o.GetUrl("https://raw.githubusercontent.com/lz233/OneText-Library/master/OneText-Library.json")
+	_, err := o.GetUrl("https://raw.githubusercontent.com/lz233/OneText-Library/master/OneText-Library.json")
 	if err != nil {
 		panic(err)
 	}
