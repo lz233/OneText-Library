@@ -3,15 +3,13 @@ package api
 import (
 	onetext "github.com/XiaoMengXinX/OneTextAPI-Go"
 	"net/http"
+	"onetextJson"
 )
 
 var o = onetext.New()
 
 func init() {
-	_, err := o.GetUrl("https://raw.githubusercontent.com/lz233/OneText-Library/master/OneText-Library.json")
-	if err != nil {
-		panic(err)
-	}
+	o.ReadBytes(text.Onetext)
 }
 
 func HandleOnetext(w http.ResponseWriter, r *http.Request) {
